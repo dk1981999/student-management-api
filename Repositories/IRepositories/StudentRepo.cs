@@ -17,32 +17,40 @@ namespace student_management_api.Repositories.IRepositories
         }
         public bool CreateStudentAsync(StudentModel model)
         {
-            db.StudentsModel
+            db.Students.Add(model);
+            return Save();
         }
 
         public bool ExistAsync(int id)
         {
-            throw new NotImplementedException();
+            return db.Students.Any(a => a.id == id);
         }
 
         public StudentModel GetStudentByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return db.Students.FirstOrDefault(a => a.id == id);
         }
 
         public ICollection<StudentModel> GetStudentsAsync()
         {
-            throw new NotImplementedException();
+            return db.Students.OrderBy(a => a.id).ToList();
         }
 
         public bool UpdateStudentAsync(StudentModel model)
         {
-            throw new NotImplementedException();
+            db.Students.Update(model);
+            return Save();
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return db.SaveChanges() >= 0 ? true : false; 
+        }
+
+        public bool DeleteStudentAsync(StudentModel model)
+        {
+            db.Students.Remove(model);
+            return Save();
         }
     }
 }

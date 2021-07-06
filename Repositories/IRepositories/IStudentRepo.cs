@@ -13,6 +13,8 @@ namespace student_management_api.Repositories.IRepositories
 
         public bool UpdateStudentAsync(StudentModel model);
 
+        public bool DeleteStudentAsync(StudentModel model);
+
         public bool ExistAsync(int id);
 
         public bool Save();

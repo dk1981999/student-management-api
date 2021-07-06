@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using student_management_api.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace student_management_api.Data
 {
@@ -14,6 +10,6 @@ namespace student_management_api.Data
 
         }
 
-        public DbSet<StudentModel>StudentsModel { get; set; }
+        public DbSet<StudentModel> Students { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using student_management_api.Data;
+using student_management_api.Repositories.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace student_management_api
         {
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IStudentRepo, StudentRepo>();
+
             services.AddControllers();
         }
 
