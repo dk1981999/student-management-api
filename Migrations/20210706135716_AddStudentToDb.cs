@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace student_management_api.Migrations
 {
@@ -7,7 +8,7 @@ namespace student_management_api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "StudentsModel",
+                name: "Students",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -25,18 +26,20 @@ namespace student_management_api.Migrations
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     degree = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     rollNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gender = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    createdDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentsModel", x => x.id);
+                    table.PrimaryKey("PK_Students", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StudentsModel");
+                name: "Students");
         }
     }
 }

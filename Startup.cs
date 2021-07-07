@@ -9,10 +9,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using student_management_api.Data;
 using student_management_api.Repositories.IRepositories;
+using AutoMapper.Extensions.ExpressionMapping;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using student_management_api.EntityMapper;
 
 namespace student_management_api
 {
@@ -33,6 +36,11 @@ namespace student_management_api
 
             services.AddScoped<IStudentRepo, StudentRepo>();
 
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddExpressionMapping();
+            },
+            typeof(EntityModelMapper));
             services.AddControllers();
         }
 
