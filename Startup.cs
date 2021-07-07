@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using student_management_api.EntityMapper;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace student_management_api
 {
@@ -42,6 +44,16 @@ namespace student_management_api
             },
             typeof(EntityModelMapper));
             services.AddControllers();
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("StudentManagementAPISpecification", new OpenApiInfo()
+                {
+                    Title = "Student Management API",
+                    Version = "V1.0",
+                    Description = "Student Management Application",
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +73,13 @@ namespace student_management_api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/StudentManagementAPISpecification/swagger.json", "Student Management API");
+                options.RoutePrefix = "";
             });
         }
     }
