@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using student_management_api.Models;
 using student_management_api.Models.Dtos;
@@ -20,8 +21,12 @@ namespace student_management_api.Controllers
             _studentRepo = studentRepo;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Get list of students.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult getStudents()
         {
             var objList = _studentRepo.GetStudentsAsync();
@@ -35,7 +40,14 @@ namespace student_management_api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Get individual student
+        /// </summary>
+        /// <param name="id">The id of the student</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult getStudentById(int id)
         {
             var result = _studentRepo.GetStudentByIdAsync(id);
@@ -46,7 +58,13 @@ namespace student_management_api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Post Student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult postStudent(StudentModelDto model)
         {
             if (model == null)
@@ -63,7 +81,17 @@ namespace student_management_api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Update Student
+        /// </summary>
+        /// <param name="id">The id of the student</param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult putStudent(int id, StudentModelDto model)
         {
             if (model == null || id != model.id)
@@ -85,7 +113,15 @@ namespace student_management_api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete Student
+        /// </summary>
+        /// <param name="id">The id of the student</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult deleteStudent(int id)
         {
             if (!_studentRepo.ExistAsync(id))

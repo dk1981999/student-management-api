@@ -18,6 +18,8 @@ using System.Threading.Tasks;
 using student_management_api.EntityMapper;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Reflection;
+using System.IO;
 
 namespace student_management_api
 {
@@ -53,6 +55,9 @@ namespace student_management_api
                     Version = "V1.0",
                     Description = "Student Management Application",
                 });
+                var xmlCommantFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommantsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommantFile);
+                options.IncludeXmlComments(xmlCommantsFullPath);
             });
         }
 

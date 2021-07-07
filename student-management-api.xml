@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>student-management-api</name>
+    </assembly>
+    <members>
+        <member name="M:student_management_api.Controllers.StudentController.getStudents">
+            <summary>
+            Get list of students.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:student_management_api.Controllers.StudentController.getStudentById(System.Int32)">
+            <summary>
+            Get individual student
+            </summary>
+            <param name="id">The id of the student</param>
+            <returns></returns>
+        </member>
+        <member name="M:student_management_api.Controllers.StudentController.postStudent(student_management_api.Models.Dtos.StudentModelDto)">
+            <summary>
+            Post Student
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:student_management_api.Controllers.StudentController.putStudent(System.Int32,student_management_api.Models.Dtos.StudentModelDto)">
+            <summary>
+            Update Student
+            </summary>
+            <param name="id">The id of the student</param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:student_management_api.Controllers.StudentController.deleteStudent(System.Int32)">
+            <summary>
+            Delete Student
+            </summary>
+            <param name="id">The id of the student</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
