@@ -1,9 +1,7 @@
 ﻿using student_management_api.Data;
 using student_management_api.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace student_management_api.Repositories.IRepositories
 {
@@ -44,7 +42,7 @@ namespace student_management_api.Repositories.IRepositories
 
         public bool Save()
         {
-            return db.SaveChanges() >= 0 ? true : false; 
+            return db.SaveChanges() >= 0 ? true : false;
         }
 
         public bool DeleteStudentAsync(StudentModel model)
