@@ -11,5 +11,7 @@ namespace student_management_api.Data
         }
 
         public DbSet<StudentModel> Students { get; set; }
+
+        public DbSet<UserModel> Users { get; set; }
     }
 }
