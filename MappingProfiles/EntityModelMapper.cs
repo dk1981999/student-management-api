@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using student_management_api.Models;
-using student_management_api.Models.Dtos;
+using student_management_api.Models.RequestModel;
+using student_management_api.Models.ResponseModel;
 
 namespace student_management_api.EntityMapper
 {
@@ -8,7 +9,12 @@ namespace student_management_api.EntityMapper
     {
         public EntityModelMapper()
         {
-            CreateMap<StudentModel, StudentModelDto>().ReverseMap();
+            CreateMap<StudentModel, StudentRequestModel>().ReverseMap();
+
+            CreateMap<StudentModel, StudentUpdateRequestModel>().ReverseMap();
+
+            CreateMap<StudentModel, StudentListModel>()
+                .ForMember(d => d.firstGraduate, o => o.MapFrom(s => (s.firstGraduate == true) ? "Yes" : "No"));
         }
     }
 }
