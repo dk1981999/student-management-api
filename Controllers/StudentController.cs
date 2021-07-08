@@ -5,10 +5,7 @@ using student_management_api.Models;
 using student_management_api.Models.RequestModel;
 using student_management_api.Models.ResponseModel;
 using student_management_api.Repositories.IRepositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace student_management_api.Controllers
 {
