@@ -17,7 +17,7 @@ namespace student_management_api.Migrations
                     fatherName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     collegeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    year = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    year = table.Column<int>(type: "int", nullable: false),
                     department = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     yearOfJoin = table.Column<int>(type: "int", nullable: false),
                     firstGraduate = table.Column<bool>(type: "bit", nullable: false),

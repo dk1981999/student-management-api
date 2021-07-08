@@ -17,14 +17,14 @@
             <param name="id">The id of the student</param>
             <returns></returns>
         </member>
-        <member name="M:student_management_api.Controllers.StudentController.postStudent(student_management_api.Models.RequestModel.StudentRequestModel)">
+        <member name="M:student_management_api.Controllers.StudentController.postStudent(student_management_api.Models.Dtos.StudentModelDto)">
             <summary>
             Post Student
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:student_management_api.Controllers.StudentController.putStudent(System.Int32,student_management_api.Models.RequestModel.StudentUpdateRequestModel)">
+        <member name="M:student_management_api.Controllers.StudentController.putStudent(System.Int32,student_management_api.Models.Dtos.StudentModelDto)">
             <summary>
             Update Student
             </summary>

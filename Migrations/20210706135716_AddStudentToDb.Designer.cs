@@ -10,7 +10,7 @@ using student_management_api.Data;
 namespace student_management_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210708042928_AddStudentToDb")]
+    [Migration("20210706135716_AddStudentToDb")]
     partial class AddStudentToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,9 +81,8 @@ namespace student_management_api.Migrations
                     b.Property<DateTime>("updatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("year")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("year")
+                        .HasColumnType("int");
 
                     b.Property<int>("yearOfJoin")
                         .HasColumnType("int");

@@ -22,7 +22,7 @@ namespace student_management_api.Models
         public string collegeName { get; set; }
 
         [Required]
-        public string year { get; set; }
+        public int year { get; set; }
 
         [Required]
         public string department { get; set; }
