@@ -1,12 +1,10 @@
-﻿
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace student_management_api.Models
+namespace student_management_api.Models.RequestModel
 {
-    public class StudentModel
+    public class StudentUpdateRequestModel
     {
-        [Key]
+        [Required]
         public int id { get; set; }
 
         [Required]
@@ -51,10 +49,6 @@ namespace student_management_api.Models
 
         [Required]
         public string gender { get; set; }
-
-        public DateTime createdDate { get; set; }
-
-        public DateTime updatedDate { get; set; }
 
     }
 }

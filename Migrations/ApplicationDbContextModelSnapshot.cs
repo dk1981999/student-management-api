@@ -79,8 +79,9 @@ namespace student_management_api.Migrations
                     b.Property<DateTime>("updatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("year")
-                        .HasColumnType("int");
+                    b.Property<string>("year")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("yearOfJoin")
                         .HasColumnType("int");
