@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using student_management_api.Models;
-using student_management_api.Models.RequestModel;
-using student_management_api.Models.ResponseModel;
+using student_management_api.Models.Dtos;
 using student_management_api.Repositories.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,6 @@ namespace student_management_api.Controllers
             _studentRepo = studentRepo;
             _mapper = mapper;
         }
-
         /// <summary>
         /// Get list of students.
         /// </summary>
@@ -33,11 +31,11 @@ namespace student_management_api.Controllers
         {
             var objList = _studentRepo.GetStudentsAsync();
 
-            var result = new List<StudentListModel>();
+            var result = new List<StudentModelDto>();
 
             foreach (var obj in objList)
             {
-                result.Add(_mapper.Map<StudentListModel>(obj));
+                result.Add(_mapper.Map<StudentModelDto>(obj));
             }
             return Ok(result);
         }
@@ -67,7 +65,7 @@ namespace student_management_api.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult postStudent(StudentRequestModel model)
+        public IActionResult postStudent(StudentModelDto model)
         {
             if (model == null)
             {
@@ -94,7 +92,7 @@ namespace student_management_api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult putStudent(int id, StudentUpdateRequestModel model)
+        public IActionResult putStudent(int id, StudentModelDto model)
         {
             if (model == null || id != model.id)
             {

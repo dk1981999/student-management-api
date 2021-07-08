@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace student_management_api.Models.RequestModel
+namespace student_management_api.Models.Dtos
 {
-    public class StudentRequestModel
+    public class StudentModelDto
     {
+        public int id { get; set; }
+
         [Required]
         public string name { get; set; }
 
@@ -17,7 +20,7 @@ namespace student_management_api.Models.RequestModel
         public string collegeName { get; set; }
 
         [Required]
-        public string year { get; set; }
+        public int year { get; set; }
 
         [Required]
         public string department { get; set; }
@@ -46,5 +49,9 @@ namespace student_management_api.Models.RequestModel
 
         [Required]
         public string gender { get; set; }
+
+        public DateTime createdDate { get; set; }
+
+        public DateTime updatedDate { get; set; }
     }
 }
