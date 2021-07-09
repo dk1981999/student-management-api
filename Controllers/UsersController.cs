@@ -15,6 +15,11 @@ namespace student_management_api.Controllers
             _userRepo = userRepo;
         }
 
+        /// <summary>
+        /// Authenticate user
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("authenticate")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -29,6 +34,11 @@ namespace student_management_api.Controllers
             return Ok(user);
         }
 
+        /// <summary>
+        /// Register a new user
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
